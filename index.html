@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>💕 Um Convite Especial 💕</title>
+  <meta property="og:title" content="💕 Um Convite Especial 💕" />
+  <meta property="og:description" content="Tenho algo importante a te perguntar... 🥺" />
+  <meta property="og:site_name" content=" " />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CORAÇÕES FLUTUANTES DE FUNDO -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <!-- Botão "Não" flutuante — fora do card, se move pela tela toda -->
+  <button class="btn-nao-floating" id="btnNao" onclick="moveNao()">😅 Não</button>
+
+  <!-- ========== PÁGINA 1 ========== -->
+  <div class="page active" id="page1">
+    <div class="card">
+      <div class="icon-top">💌</div>
+      <h1>Ei, você aí...</h1>
+      <p class="subtitle">Tenho algo importante a te perguntar ja que por mensagem ta dificil 🥺</p>
+      <h2 class="question">Você deseja sair comigo em um encontro?</h2>
+      <div class="btn-group-p1">
+        <button class="btn-sim" id="btnSim" onclick="goToPage2()">💖 Sim!</button>
+      </div>
+      <p class="hint" id="hintNao" style="display:none;"></p>
+    </div>
+  </div>
+
+  <!-- ========== PÁGINA 2 — ATIVIDADE ========== -->
+  <div class="page" id="page2">
+    <div class="card">
+      <div class="icon-top">🌹</div>
+      <h1>Que incrível! 🎉</h1>
+      <p class="subtitle">Agora me conta...</p>
+      <h2 class="question">O que você deseja fazer no nosso encontro?</h2>
+      <div class="options-grid">
+        <button class="option-btn" onclick="selectActivity(this, '🎬 Cinema')">🎬<span>Cinema</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🍽️ Jantar Romântico')">🍽️<span>Jantar Romântico</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🎡 Parque de Diversões')">🎡<span>Parque de Diversões</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🌳 Parque ao Ar Livre')">🌳<span>Parque ao Ar Livre</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🎳 Boliche')">🎳<span>Boliche</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🍦 Tomar Açaí')">🍦<span>Tomar Açaí</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🍨 Sorveteria')">🍨<span>Sorveteria</span></button>
+        <button class="option-btn" onclick="selectActivity(this, '🏃 Corridinha Juntos')">🏃<span>Corridinha Juntos</span></button>
+      </div>
+      <button class="btn-next" id="btnNext2" onclick="goToPage3()" disabled>Próximo ➡️</button>
+    </div>
+  </div>
+
+  <!-- ========== PÁGINA 3 — CALENDÁRIO ========== -->
+  <div class="page" id="page3">
+    <div class="card wide">
+      <div class="icon-top">📅</div>
+      <h1>Ótima escolha! 😍</h1>
+      <p class="subtitle">Agora escolha o dia do nosso encontro</p>
+
+      <div class="calendar-nav">
+        <button onclick="changeMonth(-1)">◀</button>
+        <span id="monthLabel"></span>
+        <button onclick="changeMonth(1)">▶</button>
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid"></div>
+
+      <button class="btn-next" id="btnNext3" onclick="goToPage4()" disabled>Escolher Horário ⏰</button>
+    </div>
+  </div>
+
+  <!-- ========== PÁGINA 4 — HORÁRIO ========== -->
+  <div class="page" id="page4">
+    <div class="card">
+      <div class="icon-top">⏰</div>
+      <h1>Quase lá! 🥰</h1>
+      <p class="subtitle">E que horas a gente se encontra?</p>
+      <h2 class="question">Escolha um horário:</h2>
+      <div class="time-options" id="timeOptions"></div>
+      <button class="btn-next" id="btnNext4" onclick="goToPage5()" disabled>Ver meu encontro 💕</button>
+    </div>
+  </div>
+
+  <!-- ========== PÁGINA 5 — RESULTADO ========== -->
+  <div class="page" id="page5">
+    <div class="card result-card">
+      <div class="icon-top big">💑</div>
+      <h1>Está Marcado! 💕</h1>
+      <div class="result-box">
+        <p class="result-line">✨ Atividade escolhida:</p>
+        <p class="result-value" id="resActivity">—</p>
+        <p class="result-line">📅 Data:</p>
+        <p class="result-value" id="resDate">—</p>
+        <p class="result-line">⏰ Horário:</p>
+        <p class="result-value" id="resTime">—</p>
+      </div>
+      <div class="final-msg">
+        <p id="finalText"></p>
+      </div>
+      <div class="hearts-final">💖 💝 💗 💓 💖</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
